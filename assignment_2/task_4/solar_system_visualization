@@ -1,0 +1,32 @@
+% Author Name: Sarah Truitt
+% Email: Truitt46@rowan.edu
+% Course: MATLAB Programming - Fall 2024
+% Assignment: Assignment 2
+% Task: Solar System Visualization
+% Date: 10/7/24
+
+% create vectors for distance and size
+planet_distance = [0.39 0.723 1 1.524 5.203 9.539 19.18 30.06];
+planet_size = [0.38 0.95 1 0.53 11.2 9.45 4 3.88];
+
+% create scatter plot
+subplot(2,1,1)
+colors = rand(length(planet_distance), 3);
+scatter(planet_distance, planet_size, planet_size*50 , colors, 'filled');
+
+% add lables
+xlabel('Planet Distance');
+ylabel('Planet Size');
+title('Solar System');
+
+% create a bar chart
+subplot(2,1,2)
+bar(planet_distance);
+
+% add labels
+xlabel('Planets')
+ylabel('Distance')
+title('Planet Distances')
+
+% save as image
+saveas(gcf,'solar_system_visualization.png')
