@@ -1,0 +1,31 @@
+% Author Name: Sarah Truitt
+% Email: Truitt46@rowan.edu
+% Course: MATLAB Programming - Fall 2024
+% Assignment: Assignment 2
+% Task: Simple Encryption Function
+% Date: 10/10/24
+
+
+% creating the function
+function encrypt = caesar_cipher(message,shift)
+% change message to numbers
+a = double(message);
+% limit shift to 0-25
+shift = mod(shift, 26);
+% adding the shift to the message
+a_m = a + shift;
+% when numbers are above what the alphabet is loop it back to the beginning
+for i = 1:length(a_m)
+    if a_m(i)>122
+        a_m(i) = a_m(i)-26;
+    end
+    if a_m(i)<97
+        a_m(i) = a_m(i)+26;
+    end
+end
+%print original message
+fprintf('Original message: %s \n', message)
+% print the new encripted message
+fprintf('Encrypted message: %s', char(a_m))
+encrypt = char(a_m);
+end
